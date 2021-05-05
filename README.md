@@ -5,6 +5,22 @@
 docker-compose -f docker-compose.dev.yml up --build
 ```
 
+**Run django container shell in command line**
+
+```
+docker exec -it <container_name/container_id> sh
+```
+
+**Run psql in command line**
+
+Run docker-compose in a detached mode (an example for already built case):
+```
+docker-compose -f docker-compose.dev.yml up -d
+
+docker exec -ti <container_name/container_id> psql -U <username> -d <database_name>
+```
+
+
 **In production mode (potentially incomplete list):**
 
 1. Delete `migrations/` from `.gitignore` file.
